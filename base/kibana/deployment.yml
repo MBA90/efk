@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: efk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      resources:
+        requests:
+          memory: "512Mi"
+        limits:
+          memory: "1Gi"
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:8.13.0
+        env:
+          - name: ELASTICSEARCH_HOSTS
+            value: http://elasticsearch:9200
+        ports:
+        - containerPort: 5601
