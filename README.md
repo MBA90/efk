@@ -1,5 +1,4 @@
-# efk
-Elasticsearch Fluentd Kibana EFK Stack Deployment
+# Efk - Elasticsearch Fluentd Kibana EFK Stack Deployment
 
 ## 📁 EFK Deployment Structure
 
