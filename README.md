@@ -4,7 +4,6 @@ Elasticsearch Fluentd Kibana EFK Stack Deployment
 ## 📁 EFK Deployment Structure
 
 ```
-efk-deployment/
 ├── base/                   
 │   ├── elasticsearch/
 │   │   ├── deployment.yml
