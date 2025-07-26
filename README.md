@@ -27,6 +27,15 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 └── └── kustomization.yaml    
 ```
 
+## 🚀 How to Deploy
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/efk.git
+cd efk
+```
+
 ## 🚀 Deploying the EFK Stack
 
 To deploy the base EFK stack to your Kubernetes cluster, run:
