@@ -25,3 +25,19 @@ Elasticsearch Fluentd Kibana EFK Stack Deployment
 │   ├── namespace.yaml
 └── └── kustomization.yaml    
 ```
+
+## 🚀 Deploying the EFK Stack
+
+To deploy the base EFK stack to your Kubernetes cluster, run:
+
+```bash
+kubectl apply -k base/
+```
+
+This command uses **Kustomize** to apply all manifests defined in the `base/` directory, including:
+- Elasticsearch
+- Kibana
+- Fluentd
+- Spring Boot Application
+
+Make sure your current context is set to the correct Kubernetes cluster.
