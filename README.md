@@ -27,6 +27,21 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 └── └── kustomization.yaml    
 ```
 
+---
+
+## 📦 What’s Included
+
+| Component          | Description                                                                  |
+|--------------------|------------------------------------------------------------------------------|
+| **Elasticsearch**  | Stores logs with persistent storage (PVC configured)                         |
+| **Kibana**         | Visualizes logs and dashboards via NodePort                                  |
+| **Fluentd**        | Collects container logs and sends them to Elasticsearch                      |
+| **Spring Boot App**| Sample application writing logs that are collected via Fluentd               |
+| **RBAC**           | Service account and permissions for Fluentd                                  |
+| **Kustomize**      | Base and overlays structure for clean, reusable, and environment-ready YAMLs |
+
+---
+
 ## 🚀 How to Deploy
  
  Clone the repository
