@@ -24,8 +24,5 @@ efk-deployment/
 │   │   ├── deployment.yml
 │   │   └── service.yml
 │   ├── namespace.yaml
-│   └── kustomization.yaml    
-├── overlays/
-│   └── dev/
-│       ├── kustomization.yaml 
+└── └── kustomization.yaml    
 ```
