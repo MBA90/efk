@@ -220,7 +220,7 @@ curl http://localhost:8080/api/users
 This will generate logs like:
 
 ```json
-📣 Hello from Spring Boot! Timestamp: 2025-07-24T23:18:52
+📣 User created with userRefNo: USR-20250726-008 
 ```
 
 These logs are collected by **Fluentd**, sent to **Elasticsearch**, and can be visualized in **Kibana**.
