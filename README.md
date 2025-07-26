@@ -28,11 +28,11 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 ```
 
 ## 🚀 How to Deploy
-
-### 1. Clone the repository
+ 
+ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/efk.git
+git clone https://github.com/MBA90/ef.git
 cd efk
 ```
 
