@@ -1,4 +1,6 @@
-# Efk - Elasticsearch Fluentd Kibana EFK Stack Deployment
+# 📊 - Elasticsearch Fluentd Kibana EFK Stack Deployment on Kubernetes
+
+This repository contains Kubernetes manifests for deploying a complete **EFK (Elasticsearch, Fluentd, Kibana)** logging stack along with a sample **Spring Boot application**. The setup is structured for **best practices**, supports **persistent storage**, and is ready for **GitOps workflows** using tools like Kustomize, ArgoCD, or GitHub Actions.
 
 ## 📁 EFK Deployment Structure
 
