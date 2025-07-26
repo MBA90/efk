@@ -89,3 +89,36 @@ Then open your browser and navigate to:
 - [http://localhost:8080](http://localhost:8080) → **Spring Boot Application**
 
 > 💡 Tip: Alternatively, you can run `minikube tunnel` to access services via their NodePort, if your setup allows it.
+
+---
+
+## 🧩 Spring Boot App – MongoDB Dependency
+
+The included Spring Boot application is configured to connect to a **MongoDB instance running outside the Kubernetes cluster**, specifically on:
+
+```
+mongodb://host.docker.internal:27017/userDB
+```
+
+### ⚠️ Important Notes:
+
+- The application expects **MongoDB to be running on your local machine** (the host of Minikube).
+- Make sure MongoDB is installed and accessible at `localhost:27017` (or `127.0.0.1:27017`) on your host.
+- If you are using **Minikube with Docker driver or WSL2**, the app connects using `host.docker.internal`, which resolves to the host machine from inside the pod.
+
+### ✅ To Ensure It Works:
+
+1. Install MongoDB on your local machine (if not already installed).
+2. Start the MongoDB service:
+   ```bash
+   net start MongoDB        # Windows (as admin)
+   sudo systemctl start mongod  # Linux
+   ```
+3. Verify it's running:
+   ```bash
+   mongosh mongodb://localhost:27017
+   ```
+4. Make sure MongoDB accepts connections from the host IP if you're using WSL2 or custom network bridges.
+
+> 🧠 Without MongoDB running on your host, the Spring Boot app will fail to start due to a connection timeout.
+
