@@ -1,0 +1,15 @@
+resources:
+  - namespace.yaml
+  - elasticsearch/deployment.yml
+  - elasticsearch/service.yml
+  - elasticsearch/pvc.yml
+  - kibana/deployment.yml
+  - kibana/service.yml
+  - fluentd/configmap.yml
+  - fluentd/serviceaccount.yml
+  - fluentd/clusterrole.yml
+  - fluentd/clusterrolebinding.yml
+  - fluentd/daemonset.yml
+  - app/configmap.yml
+  - app/deployment.yml
+  - app/service.yml
