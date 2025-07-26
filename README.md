@@ -165,4 +165,86 @@ To use the API successfully, ensure:
 - The database `userDB` is accessible
 - The Spring Boot app can reach your host via `host.docker.internal` or a proper IP binding
 
+---
+
+## 📊 Verifying Logs in Kibana
+
+Once your EFK stack is deployed and the Spring Boot app is running, you can verify that logs are successfully collected and visualized in **Kibana**.
+
+### ✅ Steps to Test Logs in Kibana
+
+1. **Access Kibana**
+
+If you're using Minikube, use:
+
+```bash
+kubectl port-forward svc/kibana -n efk 5601:5601
+```
+
+Then open:
+```
+http://localhost:5601
+```
+
+---
+
+2. **Create an Index Pattern**
+
+Kibana needs an index pattern to display logs coming from Elasticsearch.
+
+Steps:
+- Go to **Kibana UI → Management → Stack Management → Index Patterns**
+- Click **Create index pattern**
+- Enter the index pattern: `logstash-*` or `fluentd-*` (depending on your Fluentd config)
+- Select `@timestamp` as the time field
+- Click **Create index pattern**
+
+> If no indices are found, it means Fluentd hasn’t forwarded any logs yet — make sure the Spring Boot app has generated logs.
+
+---
+
+3. **Generate Application Logs**
+
+You can trigger logs in your Spring Boot app by hitting its API. For example:
+
+```bash
+kubectl port-forward svc/efk-springboot-svc -n efk 8080:8080
+```
+
+Then call:
+
+```bash
+curl http://localhost:8080/api/users
+```
+
+This will generate logs like:
+
+```json
+📣 Hello from Spring Boot! Timestamp: 2025-07-24T23:18:52
+```
+
+These logs are collected by **Fluentd**, sent to **Elasticsearch**, and can be visualized in **Kibana**.
+
+---
+
+4. **View Logs in Kibana Discover Tab**
+
+- Go to **Kibana → Discover**
+- Select the index pattern you created (`logstash-*`)
+- You should now see structured log entries coming from your Spring Boot app
+- Use filters like `level.keyword`, `logger_name`, or `message` to drill into log details
+
+---
+
+### ✅ Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| No index pattern found | Ensure logs are reaching Elasticsearch (check Fluentd logs) |
+| No logs displayed | Make sure app is generating logs, Fluentd is running, and `logstash_format` is `true` |
+| Incorrect timestamps | Ensure Fluentd is parsing `@timestamp` correctly in its config |
+
+---
+
+Let me know if you want to pre-create the Kibana index pattern using the API or auto-import dashboards via script.
 
