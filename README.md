@@ -123,3 +123,46 @@ mongodb://host.docker.internal:27017/userDB
 
 > 🧠 Without MongoDB running on your host, the Spring Boot app will fail to start due to a connection timeout.
 
+---
+
+## 📬 Interact with the Spring Boot API
+
+This project includes a Spring Boot application that exposes a RESTful **User Management API**, backed by MongoDB.
+
+To make testing easier, you can use the included **Postman collection** to interact with the API.
+
+### 🔗 Download the Collection
+
+You can find the Postman collection here:
+
+**[🌐 User API Postman Collection](https://mohammadabdelhadi.postman.co/workspace/7c1783da-7b23-4b57-82fd-3a052edc7031/collection/45174298-a01dadf5-5c28-4273-abd5-0bced7d5136b?action=share&source=collection_link&creator=45174298)**
+
+> Or use the file: `User API.postman_collection.json` provided in this repository (if available in the repo).
+
+### 🚀 Sample Endpoints Included
+
+| Method | Endpoint                                      | Description                        |
+|--------|-----------------------------------------------|------------------------------------|
+| GET    | `/api/users`                                  | List all users                     |
+| POST   | `/api/users`                                  | Create a new user                  |
+| GET    | `/api/users/{id}`                             | Get user by ID                     |
+| GET    | `/api/users/by-username/{username}`           | Get user by username               |
+| GET    | `/api/users/by-ref/{refNo}`                   | Get user by reference number       |
+| GET    | `/api/users/by-gender/{gender}`               | Filter users by gender             |
+| GET    | `/api/users/by-min-age/{age}`                 | Filter users by minimum age        |
+| GET    | `/api/users/search?name={fullName}`           | Search users by full name          |
+| PUT    | `/api/users/{id}`                             | Update user by ID                  |
+| DELETE | `/api/users/by-ref/{refNo}`                   | Delete user by reference number    |
+
+> All endpoints assume the app is accessible at `http://localhost:8080`. If you're using Minikube, see the port-forward instructions above.
+
+---
+
+## 🧠 Reminder: MongoDB Requirement
+
+To use the API successfully, ensure:
+- MongoDB is running on your local machine at `localhost:27017`
+- The database `userDB` is accessible
+- The Spring Boot app can reach your host via `host.docker.internal` or a proper IP binding
+
+
