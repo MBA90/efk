@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: efk-springboot-app
+  namespace: efk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: efk-springboot-app
+  template:
+    metadata:
+      labels:
+        app: efk-springboot-app
+    spec:
+      containers:
+      - name: efk-app
+        image: mba90/efk:v5
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: SPRING_DATA_MONGODB_URI
+      # - name: MONGO_URI
+      #    valueFrom:
+      #      configMapKeyRef:
+      #        name: mongo-config
+      #        key: MONGO_URI
