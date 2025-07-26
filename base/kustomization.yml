@@ -1,5 +1,5 @@
 resources:
-  - namespace.yaml
+  - namespace.yml
   - elasticsearch/deployment.yml
   - elasticsearch/service.yml
   - elasticsearch/pvc.yml
