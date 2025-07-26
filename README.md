@@ -246,5 +246,3 @@ These logs are collected by **Fluentd**, sent to **Elasticsearch**, and can be v
 
 ---
 
-Let me know if you want to pre-create the Kibana index pattern using the API or auto-import dashboards via script.
-
