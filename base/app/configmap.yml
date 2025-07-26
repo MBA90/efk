@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  MONGO_URI: mongodb://mongo:27017/mydb
+  SPRING_DATA_MONGODB_URI: mongodb://192.168.0.179:27017/userDB
+kind: ConfigMap
+metadata:
+  name: mongo-config
+  namespace: efk
