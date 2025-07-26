@@ -66,3 +66,26 @@ This command uses **Kustomize** to apply all manifests defined in the `base/` di
 - Spring Boot Application
 
 Make sure your current context is set to the correct Kubernetes cluster.
+
+
+---
+
+## 🧪 Running in Minikube?
+
+If you're running this stack inside **Minikube**, the services (like Kibana and the Spring Boot app) are exposed via `NodePort`. Depending on your environment (especially with WSL2 or Docker Desktop), these ports might not be directly accessible from your host machine.
+
+🔁 In that case, use the following **`kubectl port-forward`** commands to access them locally:
+
+```bash
+# Access Kibana (default port 5601)
+kubectl port-forward svc/kibana -n efk 5601:5601
+
+# Access Spring Boot App (default port 8080)
+kubectl port-forward svc/efk-springboot-svc -n efk 8080:8080
+```
+
+Then open your browser and navigate to:
+- [http://localhost:5601](http://localhost:5601) → **Kibana UI**
+- [http://localhost:8080](http://localhost:8080) → **Spring Boot Application**
+
+> 💡 Tip: Alternatively, you can run `minikube tunnel` to access services via their NodePort, if your setup allows it.
