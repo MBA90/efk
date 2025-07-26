@@ -1,9 +1,7 @@
 # efk
 Elasticsearch Fluentd Kibana EFK Stack Deployment
 
-EFK Deployment Structre 
-
-## 📁 Project Structure
+## 📁 EFK Deployment Structure
 
 ```
 efk-deployment/
@@ -29,5 +27,5 @@ efk-deployment/
 │   └── kustomization.yaml    
 ├── overlays/
 │   └── dev/
-│       ├── kustomization.yaml    # Optional: adds labels, patches, image tags
+│       ├── kustomization.yaml 
 ```
