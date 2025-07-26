@@ -47,7 +47,7 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
  Clone the repository
 
 ```bash
-git clone https://github.com/MBA90/ef.git
+git clone https://github.com/MBA90/efk.git
 cd efk
 ```
 
