@@ -92,6 +92,7 @@ Then open your browser and navigate to:
 
 ---
 
+
 ## 🧩 Spring Boot App – MongoDB Dependency
 
 The included Spring Boot application is configured to connect to a **MongoDB instance running outside the Kubernetes cluster**, specifically on:
