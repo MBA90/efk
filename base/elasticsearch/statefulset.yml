@@ -35,7 +35,12 @@ spec:
         - name: discovery.type
           value: single-node
         - name: xpack.security.enabled
-          value: "false"
+          value: "true"
+        - name: ELASTIC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: elastic-credentials
+              key: elastic-password
         - name: ES_JAVA_OPTS
           value: "-Xms512m -Xmx512m"
         resources:
