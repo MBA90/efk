@@ -1,6 +1,5 @@
 resources:
   - namespace.yml
-  - elasticsearch/secret.yml
   - elasticsearch/serviceaccount.yml
   - elasticsearch/clusterrole.yml
   - elasticsearch/clusterrolebinding.yml
