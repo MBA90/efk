@@ -4,6 +4,7 @@ metadata:
   name: elasticsearch
   namespace: efk
 spec:
+  clusterIP: None
   ports:
     - port: 9200
       targetPort: 9200
