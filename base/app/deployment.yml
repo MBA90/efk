@@ -24,8 +24,3 @@ spec:
             configMapKeyRef:
               name: mongo-config
               key: SPRING_DATA_MONGODB_URI
-      # - name: MONGO_URI
-      #    valueFrom:
-      #      configMapKeyRef:
-      #        name: mongo-config
-      #        key: MONGO_URI
