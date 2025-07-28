@@ -1,5 +1,8 @@
 resources:
   - namespace.yml
+  - elasticsearch/serviceaccount.yml
+  - elasticsearch/clusterrole.yml
+  - elasticsearch/clusterrolebinding.yml
   - elasticsearch/statefulset.yml
   - elasticsearch/service.yml
   - kibana/deployment.yml
