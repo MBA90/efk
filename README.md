@@ -23,6 +23,11 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 │   │   ├── configmap.yml
 │   │   ├── deployment.yml
 │   │   └── service.yml
+│   ├── db/
+│   │   ├── pv.yml
+│   │   ├── pvc.yml
+│   │   ├── deployment.yml
+│   │   └── service.yml
 │   ├── namespace.yaml
 └── └── kustomization.yaml    
 ```
@@ -92,39 +97,6 @@ Then open your browser and navigate to:
 
 ---
 
-
-## 🧩 Spring Boot App – MongoDB Dependency
-
-The included Spring Boot application is configured to connect to a **MongoDB instance running outside the Kubernetes cluster**, specifically on:
-
-```
-mongodb://host.docker.internal:27017/userDB
-```
-
-### ⚠️ Important Notes:
-
-- The application expects **MongoDB to be running on your local machine** (the host of Minikube).
-- Make sure MongoDB is installed and accessible at `localhost:27017` (or `127.0.0.1:27017`) on your host.
-- If you are using **Minikube with Docker driver or WSL2**, the app connects using `host.docker.internal`, which resolves to the host machine from inside the pod.
-
-### ✅ To Ensure It Works:
-
-1. Install MongoDB on your local machine (if not already installed).
-2. Start the MongoDB service:
-   ```bash
-   net start MongoDB        # Windows (as admin)
-   sudo systemctl start mongod  # Linux
-   ```
-3. Verify it's running:
-   ```bash
-   mongosh mongodb://localhost:27017
-   ```
-4. Make sure MongoDB accepts connections from the host IP if you're using WSL2 or custom network bridges.
-
-> 🧠 Without MongoDB running on your host, the Spring Boot app will fail to start due to a connection timeout.
-
----
-
 ## 📬 Interact with the Spring Boot API
 
 This project includes a Spring Boot application that exposes a RESTful **User Management API**, backed by MongoDB.
@@ -156,16 +128,6 @@ You can find the Postman collection here:
 
 > All endpoints assume the app is accessible at `http://localhost:8080`. If you're using Minikube, see the port-forward instructions above.
 
----
-
-## 🧠 Reminder: MongoDB Requirement
-
-To use the API successfully, ensure:
-- MongoDB is running on your local machine at `localhost:27017`
-- The database `userDB` is accessible
-- The Spring Boot app can reach your host via `host.docker.internal` or a proper IP binding
-
----
 
 ## 📊 Verifying Logs in Kibana
 
