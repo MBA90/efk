@@ -13,3 +13,7 @@ resources:
   - app/configmap.yml
   - app/deployment.yml
   - app/service.yml
+  - db/pv.yml
+  - db/pvc.yml
+  - db/deployment.yml
+  - db/service.yml
