@@ -1,8 +1,7 @@
 resources:
   - namespace.yml
-  - elasticsearch/deployment.yml
+  - elasticsearch/statefulset.yml
   - elasticsearch/service.yml
-  - elasticsearch/pvc.yml
   - kibana/deployment.yml
   - kibana/service.yml
   - fluentd/configmap.yml
