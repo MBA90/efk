@@ -7,7 +7,6 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 ```
 ├── base/                   
 │   ├── elasticsearch/
-│   │   ├── secret.yml
 │   │   ├── serviceaccount.yml
 │   │   ├── clusterrole.yml
 │   │   ├── clusterrolebinding.yml
