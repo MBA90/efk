@@ -7,9 +7,8 @@ This repository contains Kubernetes manifests for deploying a complete **EFK (El
 ```
 ├── base/                   
 │   ├── elasticsearch/
-│   │   ├── deployment.yml
-│   │   ├── service.yml
-│   │   └── pvc.yml
+│   │   ├── statefulset.yml
+│   │   └── service.yml
 │   ├── kibana/
 │   │   ├── deployment.yml
 │   │   └── service.yml
